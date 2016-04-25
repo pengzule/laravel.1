@@ -1,0 +1,86 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">manage apply</div>
+
+        <div class="panel-body">
+        
+        <table class="table table-striped">
+          <tr class="row">
+            <th class="col-lg-2">User</th>
+            <th class="col-lg-4">Address</th>
+	    <th class="col-lg-4">Content</th>
+            <th class="col-lg-2">Page</th>
+            <th class="col-lg-1">编辑</th>
+            <th class="col-lg-1">确认</th>
+            <th class="col-lg-1">删除</th>
+          </tr> 
+          <?php $__empty_1 = true; foreach($applies as $apply): $__empty_1 = false; ?>
+	   
+          
+	     <tr class="row">
+              <td class="col-lg-2">
+   
+                <?php echo e($apply->id); ?>
+
+               <br>
+                <?php echo e($apply->title); ?>
+
+              </td>
+	      <td class="col-lg-4" >
+                <?php echo e($apply->slug); ?>
+
+              </td>
+              <td class="col-lg-4">
+                <?php echo e($apply->body); ?>
+
+              </td>
+              <td class="col-lg-4">
+                
+                  <?php echo e($apply->user_id); ?>
+
+                
+              </td>
+              <td class="col-lg-1">
+                <a href="<?php echo e(URL('admin/applies/'.$apply->id.'/edit')); ?>" class="btn btn-success">编辑</a>
+              </td>
+              <td class="col-lg-1">
+                <form action="<?php echo e(URL('admin/applies/'.$apply->id)); ?>" method="POST" style="display: inline;">
+                  <input name="_method" type="hidden" value="PUT">
+                  <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+		  <input type="hidden" name="is_active" value="<?php echo e(1); ?>">
+                  <button type="submit" class="btn  btn-info">确认</button>
+                </form>
+              </td>
+              <td class="col-lg-1">
+                <form action="<?php echo e(URL('admin/applies/'.$apply->id)); ?>" method="POST" style="display: inline;">
+                  <input name="_method" type="hidden" value="DELETE">
+                  <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                  <button type="submit" class="btn btn-danger">删除</button>
+                </form>
+              </td>
+            </tr>
+        
+	 
+         
+	  <?php endforeach; if ($__empty_1): ?>
+	
+	  <div class="alert alert-danger">
+		<strong>Whoops!</strong> There is no order.<br><br>
+							
+	  </div>
+          
+          <?php endif; ?>
+         
+        </table>
+	
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,61 @@
+.showbox{
+    position: relative;
+    height: 400px;
+    width: 870px;
+    overflow: hidden;
+    border:2px solid #a1a1a1;
+    /*border: 1px solid #eee;
+    background-color: #eee;
+    border-radius: 1px;
+    -webkit-border-radius:1px;
+    -moz-border-radius:1px;*/
+    left: 100px;
+}
+
+.imagebox{
+    position: relative;
+    height: 370px;
+    width: 870px;
+    top: 0;
+    left: 5px;
+    overflow: hidden;
+
+}
+
+.imagebox img{
+    display: block;
+    width: 870px;
+    height: 370px;
+    float: left;
+
+}
+
+.icobox{
+    position: absolute;
+    border: none;
+    width: 120px;
+    height: 12px;
+    left: 375px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+}
+
+.icobox span{
+    background: url("http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/ico.png") 0px 0px no-repeat;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    float: left;
+    margin-left:6px;
+}
+
+.icobox span.active{
+    background: url("http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/ico.png") 0px -12px no-repeat;
+    cursor: default;
+}
+
+.pzl_black{
+    color: #0F1C28;
+}

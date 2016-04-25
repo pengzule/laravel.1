@@ -1,0 +1,169 @@
+.pzl_showbox{
+    position: relative;
+    height: 300px;
+    width: 400px;
+    overflow: hidden;
+    border:2px solid #a1a1a1;
+    /*border: 1px solid #eee;
+    background-color: #eee;
+    border-radius: 1px;
+    -webkit-border-radius:1px;
+    -moz-border-radius:1px;*/
+    left: 1px;
+}
+
+.pzl_imagebox{
+    position: relative;
+    height: 300px;
+    width: 400px;
+    top: 0;
+    left: 5px;
+    overflow: hidden;
+
+}
+
+.pzl_imagebox img{
+    display: block;
+    width: 400px;
+    height: 300px;
+    float: left;
+
+}
+
+.pzl_icobox{
+    position: absolute;
+    border: none;
+    width: 120px;
+    height: 12px;
+    left: 300px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+}
+
+.pzl_icobox span{
+    background: url("http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/ico.png") 0px 0px no-repeat;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    float: left;
+    margin-left:6px;
+}
+
+.pzl_icobox span.active{
+    background: url("http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/ico.png") 0px -12px no-repeat;
+    cursor: default;
+}
+
+.pzl_titleposition{
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    font-size: 120%;
+    width: 400px;
+}
+
+.pzl_priceposition{
+    position: absolute;
+    left: 600px;
+    top: 350px;
+    height: 70px;
+    width: 400px;
+    background-color: #eee;
+
+
+}
+
+.pzl_price{
+    text-align: center;
+    line-height: 70px;
+    float: left;
+    width: 200px;
+    font-size: 200%;
+    color: red;
+}
+
+.pzl_addbutton{
+    position: absolute;
+    left: 600px;
+    top: 450px;
+
+}
+
+.pzl_nowbutton{
+    position: absolute;
+    left: 720px;
+    top: 450px;
+
+}
+
+.pzl_{
+    
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+    left: 16px;
+    top: 72px;
+    text-align:left;
+}
+.pzl_a:link,.pzl_a:visited
+{
+     
+    display:block;
+    font-weight:bold;
+    color:#000000;
+    width:180px;
+    text-align:left;
+    padding:4px;
+    text-decoration:none;
+    text-transform:uppercase;
+   
+}
+.pzl_a:hover,.pzl_a:active
+{
+    background-color:#cc0000;
+}
+
+.pzl_size{
+		width:20%;	
+}
+
+.pzl_cart{
+	
+	position: relative;   left: 170px; right: 0; top: -130px;width: 200px;  
+	}
+	
+
+.pzl_cartaddbox{
+    position: relative;
+    height: 300px;
+    width: 400px;
+    overflow: hidden;
+    border:2px solid #a1a1a1;
+    /*border: 1px solid #eee;
+    background-color: #eee;
+    border-radius: 1px;
+    -webkit-border-radius:1px;
+    -moz-border-radius:1px;*/
+    left: 1px;
+}
+
+.pzl_cartaddimagebox{
+    position: relative;
+    height: 300px;
+    width: 400px;
+    top: 0;
+    left: 5px;
+    overflow: hidden;
+
+}
+
+.pzl_cartaddimagebox img{
+    display: block;
+    width: 400px;
+    height: 300px;
+    float: left;
+
+}

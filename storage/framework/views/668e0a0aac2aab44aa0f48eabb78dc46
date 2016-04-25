@@ -1,0 +1,111 @@
+<?php $__env->startSection('title',$product->name); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <h1 style="text-align: center; margin-top: 50px;"><?php echo e($product->name); ?></h1>
+  <hr>
+  <div class="pzl_showbox">
+      <div class="pzl_imagebox">
+          <img src="/images/3.jpg" alt="3.jpg">
+          <img src="/images/4.jpg" alt="4.jpg">
+          <img src="/images/5.jpg" alt="5.jpg">
+          <img src="/images/6.jpg" alt="6.jpg">
+      </div>
+      <div class="pzl_icobox">
+          <span rel="0" class="active">0</span>
+          <span rel="1">1</span>
+          <span rel="2">2</span>
+          <span rel="3">3</span>
+      </div>
+  </div>
+  <div class="pzl_titleposition">
+      <div >
+      <p>
+          金钱猫EOC终端猫MT706 广电猫 Modem EOC四口终端设备规范和法国恢复规划的非官方大哥大哥的
+      </p>
+      </div>
+  </div>
+  <div class="pzl_priceposition">
+      <div class="pzl_price">¥ <?php echo e($product->price); ?></div>
+
+  </div>
+  <div class="pzl_addbutton">
+      <ul class="nav navbar-nav">
+          <li><button type="submit"  onclick="_toCart()" class="btn btn-lg btn-success col-lg-12">立即购买</button></li>
+      </ul>
+  </div>
+  <div class="pzl_nowbutton">
+      <ul class="nav navbar-nav">
+      	
+         <a href="<?php echo e(URL('service/cart/add/'.$product->id)); ?>"><button type="submit" class="btn btn-lg btn-success col-lg-12" onclick="_addCart()" style="display: inline;">加入购物车</button></a>
+      </ul>
+  </div>
+  <hr>
+  <div id="content" style="padding: 50px;">
+    <p>
+        有时候你可能想要通过传递数组数据来手动创建分页实例，你可以基于自己的需求通过创建Illuminate\Pagination\Paginator或Illuminate\Pagination\LengthAwarePaginator实例来实现。
+
+        Paginator类不需要知道结果集中数据项的总数；然而，正因如此，该类也没有提供获取最后一页索引的方法。
+
+        LengthAwarePaginator接收参数和Paginator几乎一样，只是，它要求传入结果集的总数。
+
+        换句话说，Paginator 对应simplePaginate方法，而LengthAwarePaginator对应paginate方法。
+
+        当手动创建分页器实例的时候，应该手动对传递到分页器的结果集进行“切片”，如果你不确定怎么做，查看PHP函数array_slice。
+
+        3、在视图中显示分页结果
+        当你调用查询构建器或Eloquent查询上的paginate或simplePaginate方法时，你将会获取一个分页器实例。当调用paginate方法时，你将获取Illuminate\Pagination\LengthAwarePaginator，而调用方法simplePaginate时，将会获取Illuminate\Pagination\Paginator实例。这些对象提供相关方法描述这些结果集，除了这些帮助函数外，分页器实例本身就是迭代器，可以像数组一样对其进行循环调用。
+
+        所以，获取到结果后，可以按如下方式使用Blade显示这些结果并渲染页面链接：
+
+
+      render方法将会将结果集中的其它页面链接渲染出来。每个链接已经包含了?page查询字符串变量。记住，render方法生成的HTML兼容Bootstrap CSS 框架。
+
+      注意：我们从Blade模板调用render方法时，确保使用语法以便HTML链接不被过滤
+    </p>
+  </div>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('m-js'); ?>
+<script type="text/javascript">
+ function _addCart() {
+    var product_id = "<?php echo e($product->id); ?>";
+    
+    $.ajax({
+      type: "GET",
+      url: '/service/cart/add/' + product_id,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        if(data == null) {
+          $('.bk_toptips').show();
+          $('.bk_toptips span').html('服务端错误');
+          setTimeout(function() {$('.bk_toptips').hide();}, 2000);
+          return;
+        }
+        if(data.status != 0) {
+          $('.bk_toptips').show();
+          $('.bk_toptips span').html(data.message);
+          setTimeout(function() {$('.bk_toptips').hide();}, 2000);
+          return;
+        }
+
+        var num = $('#cart_num').html();
+        if(num == '') num = 0;
+        $('#cart_num').html(Number(num) + 1);
+
+      },
+      error: function(xhr, status, error) {
+        console.log(xhr);
+        console.log(status);
+        console.log(error);
+      }
+    });
+  }
+  function _toCart() {
+    location.href = "/home";
+  }
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('_layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
