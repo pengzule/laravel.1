@@ -74,7 +74,7 @@
 <script src="/js/book.js" charset="utf-8"></script> 
 	  <script src="/js/lbt.js" ></script>
 	  <script src="/js/pzl_lbt.js"></script>
-    <div id="footer" style="text-align: center; border-top: dashed 3px #eeeeee; margin: 50px 0; padding: 20px;">
+    <div id="footer" style="text-align: center; border-top: dashed 3px #eeeeee; margin: 50px 0; padding: 10px;">
       ©2016 <a href="#">Pengzule</a>
     </div>
   </div>

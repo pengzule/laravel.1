@@ -1,8 +1,8 @@
-﻿@extends('_layouts.default')
+﻿
 
-@section('title','我的购物车')
+<?php $__env->startSection('title','我的购物车'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="container">
 
@@ -19,7 +19,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a href="#"><img src="/images/user.png"></a>
-		    	        <a href="#">( {{  Auth::user()->name}} )</a>
+		    	        <a href="#">( <?php echo e(Auth::user()->name); ?> )</a>
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped">
@@ -31,7 +31,7 @@
                                 <th class="col-lg-2">合计</th>
                                 <th class="col-lg-3">操作</th>
                             </tr>
-                             @foreach ($cart_items as $cart_item)
+                             <?php foreach($cart_items as $cart_item): ?>
                                 <tr class="row" >
                                     <div class="pzl_flash">
                                         <div class="pzl_flash_">
@@ -48,20 +48,23 @@
                                         </div>
                                     </div>
                                     <td>
-                                        <input type="checkbox"  name="cart_item" id="{{$cart_item->product->id}}" >
-                                        <a href="#"><img style="width:85%;"	 src="{{$cart_item->product->preview}}"/></a>
+                                        <input type="checkbox"  name="cart_item" id="<?php echo e($cart_item->product->id); ?>" >
+                                        <a href="#"><img style="width:85%;"	 src="<?php echo e($cart_item->product->preview); ?>"/></a>
                                     </td>
                                     <td  style="padding-top: 20px;">
-                                        <div style="width: 150px;word-wrap:break-word;">{{$cart_item->product->name}}</div>
+                                        <div style="width: 150px;word-wrap:break-word;"><?php echo e($cart_item->product->name); ?></div>
                                     </td>
                                     <td style="padding-top: 20px;">
-                                        ¥ {{$cart_item->product->price}}
+                                        ¥ <?php echo e($cart_item->product->price); ?>
+
                                     </td>
                                     <td style="padding-top: 20px;">
-                                       {{$cart_item->count}}
+                                       <?php echo e($cart_item->count); ?>
+
                                     </td>
                                     <td style="padding-top: 20px;">
-                                        {{$cart_item->product->price * $cart_item->count}}
+                                        <?php echo e($cart_item->product->price * $cart_item->count); ?>
+
                                     </td>
                                     <td style="padding-top: 20px;">
                                         <div style="float: right">
@@ -69,15 +72,15 @@
                                         </div>
                                     </td>
                                 </tr>
-                             @endforeach
+                             <?php endforeach; ?>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-@section('m-js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('m-js'); ?>
 <script type="text/javascript">
 
         $('input:checkbox[name=cart_item]').click(function(event) {
@@ -166,4 +169,6 @@
         }
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('_layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
