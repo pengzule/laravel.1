@@ -19,12 +19,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a href="#"><img src="/images/user.png"></a>
-		    	        <a href="#">( {{  Auth::user()->name}} )</a>
+		    	        {{--<a href="#">( {{  Auth::user()->name}} )</a>--}}
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped">
                             <tr class="row">
-                                <th class="col-lg-2"><input type="checkbox" ></th>
+                                <th class="col-lg-2"><input type="checkbox"  onclick="selectAll()" ></th>
                                 <th class="col-lg-3"></th>
                                 <th class="col-lg-2">单价</th>
                                 <th class="col-lg-2">数量</th>
@@ -35,20 +35,21 @@
                                 <tr class="row" >
                                     <div class="pzl_flash">
                                         <div class="pzl_flash_">
-                                            <input type="checkbox" >
+                                            <input type="checkbox"  onclick="selectAll()" >
                                         </div>
-                                        <div class="pzl_flash_">
-                                           全选
+                                        <div class="pzl_flash_" id="opt1" >
+                                            <a href="javascript:"  onclick="selectAll()" >全选 </a>
                                         </div>
                                         <div class="pzl_flash_">
                                             批量删除
+
                                         </div>
                                         <div class="pzl_flash_1">
-                                           <a class="btn btn-danger" >确认结算</a>
+                                           <a class="btn btn-danger" onclick="_toCharge()" >确认结算</a>
                                         </div>
                                     </div>
                                     <td>
-                                        <input type="checkbox"  name="cart_item" id="{{$cart_item->product->id}}" >
+                                        <input type="checkbox"  name="cart_item"  id="{{$cart_item->product->id}}">
                                         <a href="#"><img style="width:85%;"	 src="{{$cart_item->product->preview}}"/></a>
                                     </td>
                                     <td  style="padding-top: 20px;">
@@ -72,39 +73,39 @@
                              @endforeach
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 @endsection
-@section('m-js')
-<script type="text/javascript">
-
-        $('input:checkbox[name=cart_item]').click(function(event) {
-            var checked = $(this).attr('checked');
-            if(checked == 'checked') {
-                $(this).attr('checked', false);
-                $(this).next().removeClass('weui_icon_checked');
-                $(this).next().addClass('weui_icon_unchecked');
-            } else {
-                $(this).attr('checked', 'checked');
-                $(this).next().removeClass('weui_icon_unchecked');
-                $(this).next().addClass('weui_icon_checked');
+@section('my-js')
+    <script type="text/javascript">
+        function selectAll(){
+            var a = document.getElementsByTagName("input");
+            if(a[0].checked){
+                for(var i = 0;i<a.length;i++){
+                    if(a[i].type == "checkbox") a[i].checked = false;
+                }
             }
-        });
+            else{
+                for(var i = 0;i<a.length;i++){
+                    if(a[i].type == "checkbox") a[i].checked = true;
+                }
+            }
+        }
+
+
+
 
         function _toCharge() {
             var product_ids_arr = [];
-            $('input:checkbox[name=cart_item]').each(function(index, el) {
-                if($(this).attr('checked') == 'checked') {
-                    product_ids_arr.push($(this).attr('id'));
-                }
+            $("input[name='cart_item']:checked").each(function () {
+                product_ids_arr.push($(this).attr('id'));
             });
 
             if(product_ids_arr.length == 0) {
-
                 alert('请选择提交项');
-
                 return;
             }
 
@@ -121,20 +122,15 @@
             // $('#order_commit').submit();
         }
 
-
         function _onDelete() {
             var product_ids_arr = [];
-            $('input:checkbox[name=cart_item]').each(function(index, el) {
-                if($(this).attr('checked') == 'checked') {
+            $("input[name='cart_item']:checked").each(function () {
                     product_ids_arr.push($(this).attr('id'));
-                }
             });
-
             if(product_ids_arr.length == 0) {
-                alert('请选择提交项');
+                alert('请选择删除项');
                 return;
             }
-
             $.ajax({
                 type: "GET",
                 url: '/service/cart/delete',
@@ -143,18 +139,13 @@
                 data: {product_ids: product_ids_arr+''},
                 success: function(data) {
                     if(data == null) {
-                        $('.bk_toptips').show();
-                        $('.bk_toptips span').html('服务端错误');
-                        setTimeout(function() {$('.bk_toptips').hide();}, 2000);
+                        alert('服务端错误');
                         return;
                     }
                     if(data.status != 0) {
-                        $('.bk_toptips').show();
-                        $('.bk_toptips span').html(data.message);
-                        setTimeout(function() {$('.bk_toptips').hide();}, 2000);
+                        alert(data.message);
                         return;
                     }
-
                     location.reload();
                 },
                 error: function(xhr, status, error) {
@@ -164,6 +155,8 @@
                 }
             });
         }
+
     </script>
+
 
 @endsection

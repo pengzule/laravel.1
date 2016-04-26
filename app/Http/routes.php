@@ -69,3 +69,6 @@ Route::group(['prefix' => 'service'], function () {
 
   Route::post('pay/wx_notify', 'Service\PayController@wxNotify');
 });
+
+Route::match(['get', 'post'], '/order_commit', 'View\OrderController@toOrderCommit');
+Route::get('/order_list', 'View\OrderController@toOrderList')->middleware(['check.login']);

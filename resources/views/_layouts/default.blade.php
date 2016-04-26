@@ -69,9 +69,7 @@
 
 	<script src="/assets/js/jquery.min.js"></script>
 	<script src="/assets/js/bootstrap.min.js"></script>
-	 <script src="/js/jquery-1.11.2.min.js"></script>
-<script src="/js/swipe.min.js" charset="utf-8"></script>
-<script src="/js/book.js" charset="utf-8"></script> 
+
 	  <script src="/js/lbt.js" ></script>
 	  <script src="/js/pzl_lbt.js"></script>
     <div id="footer" style="text-align: center; border-top: dashed 3px #eeeeee; margin: 50px 0; padding: 10px;">

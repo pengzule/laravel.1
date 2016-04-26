@@ -38,7 +38,7 @@
 				<p>
 					
 					
-					<a class="btn btn-info btn-sm btn-add" href="#">Add Cart</a>
+					<a class="btn btn-info btn-sm btn-add" href="#" onclick="getElements()">Add Cart</a>
 					
 
 					{{-- Add to wishlist button --}}
@@ -80,6 +80,12 @@
     }
   });
 
+  function getElements()
+  {
+    //var x=document.getElementsByTagName("input");
+    //alert(x.length);
+    alert("sasa");
+  }
   function _addCart() {
     var product_id = "{{$product->id}}";
     $.ajax({
