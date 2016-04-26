@@ -1,0 +1,23 @@
+﻿<html>
+<script language=javascript>
+	function selectAll(){
+		var a = document.getElementsByTagName("input");
+		if(a[0].checked){
+			for(var i = 0;i<a.length;i++){
+				if(a[i].type == "checkbox") a[i].checked = false;
+			}
+		}
+		else{
+			for(var i = 0;i<a.length;i++){
+				if(a[i].type == "checkbox") a[i].checked = true;
+			}
+		}
+	}
+</script>
+<input type="checkbox" value=1 />
+<input type="checkbox" value=2 />
+<input type="checkbox" value=3 />
+<input type="checkbox" value=4 />
+<input type="checkbox" value=5 />
+<input type="button" name="select" onclick="selectAll()" value="全选/全不选"/>
+</html>

@@ -19,12 +19,12 @@
                         
                       <a href="#"><img class="pzl_size" src="<?php echo e($product->preview); ?>"/></a>
                                 	<div style=" float: right; ">
-																	 	<p style="font-size: 120%;width:200px;"><img style="width:15%;margin-right:15px;"	src="/images/success.png"><?php echo e($result); ?></p>
-																	  <p style=" float: right;padding-top:70px ;"><b style="color:red;">小计: ￥<?php echo e($product->price); ?></b><br/>购物车共有<span style="color:red;"><?php echo e(count($cart_items)); ?></span>件商品</p>
-																	  <p><a href="/products/<?php echo e($product->id); ?>"class="btn  btn-danger">返回商品详情</a>
-																	  <a href="/cart"Class="btn  btn-success ">去购物车结算</a></p>
-																	</div>             
-                       
+                                        <p style="font-size: 120%;width:200px;"><img style="width:15%;margin-right:15px;"	src="/images/success.png"><?php echo e($result); ?></p>
+                                          <p style=" float: right;padding-top:70px ;"><b style="color:red;">小计: ￥<?php echo e($product->price); ?></b><br/>购物车共有<span style="color:red;"><?php echo e(count($cart_items)); ?></span>件商品</p>
+                                          <p><a href="/products/<?php echo e($product->id); ?>"class="btn  btn-danger">返回商品详情</a>
+                                          <a href="/cart"Class="btn  btn-success ">去购物车结算</a></p>
+                                    </div>
+
                                 	
                                 	                                
                                 
