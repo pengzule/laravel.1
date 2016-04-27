@@ -1,10 +1,8 @@
 @extends('_layouts.default1')
 
-<<<<<<< HEAD
+
 @section('title','订单确认')
-=======
-@section('title', '订单')
->>>>>>> 564690fdba7db4f42449f535a0325a8dc96f8210
+
 
 @section('content')
 
