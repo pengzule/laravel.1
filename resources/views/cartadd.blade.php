@@ -28,7 +28,6 @@
                                 	                                
                                 
                                 
-                      
 
 
                     </div>
@@ -40,6 +39,7 @@
   
 
 @endsection
-@section('m-js')
+@section('my-js')
+
 
 @endsection

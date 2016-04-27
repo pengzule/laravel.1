@@ -29,7 +29,6 @@
                                 	                                
                                 
                                 
-                      
 
 
                     </div>
@@ -41,7 +40,8 @@
   
 
 <?php $__env->stopSection(); ?>
-<?php $__env->startSection('m-js'); ?>
+<?php $__env->startSection('my-js'); ?>
+
 
 <?php $__env->stopSection(); ?>
 

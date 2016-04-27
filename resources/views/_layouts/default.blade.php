@@ -9,6 +9,7 @@
 
   
 	<link href="/css/lbt.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/pzl_lbt.css" rel="stylesheet">
 	
   <!-- Fonts -->
@@ -69,9 +70,10 @@
 
 	<script src="/assets/js/jquery.min.js"></script>
 	<script src="/assets/js/bootstrap.min.js"></script>
-
+	<script src="posifixed.js" ></script>
 	  <script src="/js/lbt.js" ></script>
 	  <script src="/js/pzl_lbt.js"></script>
+	  <script  src="/js/demo.js"></script>
     <div id="footer" style="text-align: center; border-top: dashed 3px #eeeeee; margin: 50px 0; padding: 10px;">
       ©2016 <a href="#">Pengzule</a>
     </div>

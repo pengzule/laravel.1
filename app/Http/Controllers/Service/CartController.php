@@ -16,8 +16,13 @@ class CartController extends Controller
     $m3_result->message = '已成功加入购物车';
 
     // 如果当前已经登录
+    //return $product_id;
     $member = $request->session()->get('member', '');
    	$product = Product::where('id',$product_id)->first();
+
+    if($product == ''){
+      return  "kasldkalsd";
+    }
     if($member != '') {
       $cart_items = CartItem::where('member_id', $member->id)->get();
 
@@ -38,9 +43,10 @@ class CartController extends Controller
         $cart_item->member_id = $member->id;
         $cart_item->save();
       }
+      $cart_items = CartItem::where('member_id', $member->id)->get();
 			 return view('cartadd')->with('product', $product)
-			 											 ->with('cart_items', $cart_items)
-			 											 ->with('result', $m3_result->message);
+			 						->with('cart_items', $cart_items)
+			 						->with('result', $m3_result->message);
       //return $m3_result->toJson();
     }
 

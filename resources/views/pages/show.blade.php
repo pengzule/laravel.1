@@ -43,7 +43,7 @@
       </ul>
   </div>
   <hr>
-  <div id="content" style="padding: 50px;">
+  <div id="content" style=" padding: 50px;">
     <p>
         有时候你可能想要通过传递数组数据来手动创建分页实例，你可以基于自己的需求通过创建Illuminate\Pagination\Paginator或Illuminate\Pagination\LengthAwarePaginator实例来实现。
 

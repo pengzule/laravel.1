@@ -7,6 +7,7 @@
     <div class="container">
 
         <div class="row">
+
             <ul class="pzl_">
                 <li><a class="pzl_a" href="#home">我的购物车</a></li>
                 <li><a class="pzl_a "href="#news">我的订单</a></li>
@@ -94,7 +95,26 @@
                 }
             }
         }
+        $(function(){
+            $('.pzl_nav').posfixed({
+                distance : 0,
+                pos : 'top',
+                type : 'while',
+                hide : false
+            });
 
+            $('.gotop').posfixed({
+                distance : 10,
+                direction : 'bottom',
+                type : 'always',
+                tag : {
+                    obj : $('.wrap'),
+                    direction : 'right',
+                    distance : 10
+                },
+                hide : true
+            });
+        });
 
 
 
